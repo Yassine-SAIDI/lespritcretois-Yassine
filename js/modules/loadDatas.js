@@ -1,5 +1,5 @@
 // Load datas products from json
-const urlJson = "http://127.0.0.1:550/json/products.json";
+const urlJson = "https://yassine-saidi.github.io/lespritcretois-Yassine/json/products.json";
 
 const loadDatasOfProducts = async (urlJson) => {
     fetch(urlJson)
