@@ -24,5 +24,3 @@ const loadDatasOfProducts = async () => {
 };
 
 export { loadDatasOfProducts };
-
-export { loadDatasOfProducts }
