@@ -1,24 +1,26 @@
-// Load datas products from json
-const urlJson = "http://127.0.0.1:550/json/products.json";
+// const urlJson = "http://127.0.0.1:5501/json/products.json";   /////// addr local
+const urlJson = "https://yassine-saidi.github.io/lespritcretois-Yassine/json/products.json";
 
-const loadDatasOfProducts = async (urlJson) => {
-    fetch(urlJson)
-        .then(response => response.json())
-        .then(dataJson => {
-            sessionStorage.setItem("datas", JSON.stringify(dataJson))
-        })
-        .catch(error => {
-            console.log(error);
-        });
+const getDatasOfProducts = async () => {
+  try {
+    const response = await fetch(urlJson);
+    const dataJson = await response.json();
+    sessionStorage.setItem("datas", JSON.stringify(dataJson));
+    return dataJson;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };
-loadDatasOfProducts(urlJson)
 
-// load data if session don't exist
-if (!sessionStorage.getItem('datas')) {
-    loadDatasOfProducts(urlJson)
-} else {
-    JSON.parse(sessionStorage.getItem('datas'))
-}
+const loadDatasOfProducts = async () => {
+  let datas = sessionStorage.getItem("datas");
+  if (datas === null) {
+    datas = await getDatasOfProducts();
+  } else {
+    datas = JSON.parse(datas);
+  }
+  return datas;
+};
 
-
-export { loadDatasOfProducts }
+export { loadDatasOfProducts };

@@ -1,5 +1,7 @@
+import { loadDatasOfProducts } from "./modules/loadDatas.js";
+
 // load datas
-const dataJson = JSON.parse(sessionStorage.getItem('datas'));
+const dataJson = await loadDatasOfProducts()
 
 // Display Products
 const displayProducts = (dataJson) => {

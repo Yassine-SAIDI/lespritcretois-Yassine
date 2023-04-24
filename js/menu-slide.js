@@ -2,9 +2,11 @@
 // // Creation du menu slide present sur toutes les pages
 // //////////////////////////////////////////////////////
 
+import { loadDatasOfProducts } from "./modules/loadDatas.js"
+
 
 // les const et les variables
-const data = JSON.parse(sessionStorage.getItem('datas'));
+const data =  await loadDatasOfProducts()
 const menuCategory = document.querySelector('#menu-categories')
 let category = data.category
 let products = data.products
