@@ -1,4 +1,4 @@
-// const urlJson = "http://127.0.0.1:5501/json/products.json";   /////// addr local
+// Load datas products from json
 const urlJson = "https://yassine-saidi.github.io/lespritcretois-Yassine/json/products.json";
 
 const getDatasOfProducts = async () => {
@@ -24,3 +24,5 @@ const loadDatasOfProducts = async () => {
 };
 
 export { loadDatasOfProducts };
+
+export { loadDatasOfProducts }
